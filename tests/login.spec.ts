@@ -26,3 +26,11 @@ test('Adicionar produto ao carrinho', async ({ page }) => {
     await products.addProductToCart()
 
 })
+
+test('login com usuario bloqueado', async ({ page }) => {
+    const login = new Login(page); // Instancia a classe Login e passa o objeto 'page'
+
+    await login.visit(); // Chama o método 'visit' da classe Login
+    await login.submit('locked_out_user', 'secret_sauce');
+    await login.assertLoginErrorBlocked(); // Chama o método 'assertLoginError' da classe Login 
+})

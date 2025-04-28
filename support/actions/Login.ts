@@ -34,4 +34,8 @@ export class Login {
         await expect(this.page.getByText('Epic sadface: Username and password do not match any user in this service')).toBeVisible()
     }
 
+    async assertLoginErrorBlocked() {
+        await expect(this.page.getByText('Epic sadface: Sorry, this user has been locked out.')).toBeVisible()
+    }
+
 }
