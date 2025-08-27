@@ -60,7 +60,7 @@ test('Adicionar 2 produtos ao carrinho', async ({ page }) => {
     const products = new Products(page); // Instancia a classe Products e passa o objeto 'page'
     await login.visit(); // Chama o método 'visit' da classe Login
     await login.submit('standard_user', 'secret_sauce');
-    await products.addProductToCart()
+    await products.add2ProductToCart()
 })
 
 test('validar persistencia do carrinho', async ({ page }) => {
@@ -68,7 +68,7 @@ test('validar persistencia do carrinho', async ({ page }) => {
     const products = new Products(page); // Instancia a classe Products e passa o objeto 'page'
     await login.visit(); // Chama o método 'visit' da classe Login
     await login.submit('standard_user', 'secret_sauce');
-    await products.addProductToCart()
+    await products.add2ProductToCart()
     await page.reload()
     await expect(page.locator('[id="shopping_cart_container"]')).toHaveText('2')
 })
@@ -78,7 +78,7 @@ test('Remover item diretamente da página de inventário', async ({ page }) => {
     const products = new Products(page); // Instancia a classe Products e passa o objeto 'page'
     await login.visit(); // Chama o método 'visit' da classe Login
     await login.submit('standard_user', 'secret_sauce');
-    await products.addProductToCart()
+    await products.add2ProductToCart()
     await products.removeProductInventary()
 })
 
